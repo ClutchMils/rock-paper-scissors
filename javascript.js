@@ -1,5 +1,8 @@
 // console.log("hello");
 
+let humanScore = 0;
+let computerScore = 0; 
+
 function getComputerChoice(){
     
     const min = 1;
@@ -16,5 +19,6 @@ function getHumanChoice() {
 
     return choice;
 }
+
 
 // console.log(getHumanChoice());
