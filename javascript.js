@@ -7,18 +7,21 @@ function getComputerChoice(){
     
     const min = 1;
     const max = 3;
-    const randomInteger = Math.floor(Math.random() * (max - min + 1)) + min;
+    const computerChoice = Math.floor(Math.random() * (max - min + 1)) + min;
 
-    return randomInteger;
+    return computerChoice;
 }
 
 //  console.log(getComputerChoice());
 
 function getHumanChoice() {
-    let choice = prompt("Enter rock, paper, or scissors","c");
+    let humanChoice = prompt("Enter rock, paper, or scissors","c");
 
-    return choice;
+    return humanChoice;
 }
 
-
 // console.log(getHumanChoice());
+
+function playRound(humanChoice.toLowerCase(), computerChoice){
+    
+}
