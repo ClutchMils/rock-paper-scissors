@@ -26,7 +26,7 @@ function getHumanChoice() {
 function playGame (){
     let humanScore = 0;
     let computerScore = 0; 
-    let i = 1;
+   
 
     function playRound(humanChoice, computerChoice){
     let lowerCaseString = humanChoice.toLowerCase();
@@ -34,50 +34,56 @@ function playGame (){
     switch(lowerCaseString){
         case "rock":
             if (computerChoice == 1){
-                console.log("Draw! Rock is equal to Rock");
+                return "Draw! Rock is equal to Rock";
             }
             else if(computerChoice == 2){
-                console.log("You lose! Paper beats Rock");
-                return computerScore ++;
+                computerScore ++;
+                return "You lose! Paper beats Rock";            
             }
             else {
-                console.log("You win! Rock beats Scissors");
-                return humanScore ++;
+                humanScore ++;
+                return "You win! Rock beats Scissors";         
             }
-            break;
         case "paper":
             if (computerChoice == 1){
-                console.log("You win! Paper beats rock");
-                return humanScore ++;
+                humanScore ++;
+                return "You win! Paper beats rock";   
             }
             else if(computerChoice == 2){
-                console.log("Draw! Paper equals paper");
+                return "Draw! Paper equals paper";
             }
             else {
-                console.log("You lose! Scissors beats Paper");
-                return computerScore ++;
+                computerScore ++;
+                return "You lose! Scissors beats Paper";    
             }
-            break;
         case "scissors":
             if (computerChoice == 1){
-                console.log("You lose! Rock beats Scissors");
-                return computerScore ++;
+                computerScore ++;
+                return "You lose! Rock beats Scissors";
             }
             else if(computerChoice == 2){
-                console.log("You win! Scissors beats Paper");
-                return humanScore ++;
+                humanScore ++;
+                return "You win! Scissors beats Paper"; 
             }
             else {
-                console.log("Draw! Scissors equals Scissors");
+                return ("Draw! Scissors equals Scissors");
             }
-            break;
         default:
-            console.log("Enter rock, paper, scissors");
+            return ("Enter rock, paper, scissors");
     }
 }
 
-for (i=1; i>=5; i++){
-    console.log(playRound(getHumanChoice(), getComputerChoice()));
+for ( let i = 0; i < 5; i++){
+    console.log(playRound(getHumanChoice(), getComputerChoice())) ;
 }
-return 
+
+if (humanScore > computerScore) {
+    return "You win!";
 }
+else {
+    return "You lose!"
+}
+
+}
+
+console.log(playGame());
