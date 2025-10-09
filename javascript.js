@@ -26,6 +26,10 @@ function getHumanChoice() {
 function playGame (){
     let humanScore = 0;
     let computerScore = 0; 
+
+    const rock = document.querySelector("#rock");
+    const scissors = document.querySelector("#scissors");
+    const paper = document.querySelector("paper");
    
 
     function playRound(humanChoice, computerChoice){
@@ -73,9 +77,9 @@ function playGame (){
     }
 }
 
-for ( let i = 0; i < 5; i++){
+// for ( let i = 0; i < 5; i++){
     console.log(playRound(getHumanChoice(), getComputerChoice())) ;
-}
+// }
 
 if (humanScore > computerScore) {
     return "You win!";
@@ -85,5 +89,7 @@ else {
 }
 
 }
+
+
 
 console.log(playGame());
