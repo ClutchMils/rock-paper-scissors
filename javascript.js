@@ -1,4 +1,7 @@
-// console.log("hello");
+
+let computerScore = 0;
+let humanScore = 0;
+let countRounds = 0;
 
 function getComputerChoice(){
     
@@ -9,33 +12,19 @@ function getComputerChoice(){
     return computerChoice;
 }
 
-//  console.log(getComputerChoice());
+ // buttons is a node list. It looks and acts much like an array.
+const buttons = document.querySelectorAll("button");
 
-function getHumanChoice() {
-    let humanChoice = prompt("Enter rock, paper, or scissors","");
-
-    return humanChoice;
-}
-
-// console.log(getHumanChoice());
-
-
-
-// console.log(playRound(getHumanChoice(),getComputerChoice()));
-
-function playGame (){
-    let humanScore = 0;
-    let computerScore = 0; 
-
-    const rock = document.querySelector("#rock");
-    const scissors = document.querySelector("#scissors");
-    const paper = document.querySelector("paper");
-   
-
+// we use the .forEach method to iterate through each button
+buttons.forEach((button) => {
+  // and for each one we add a 'click' listener
+  button.addEventListener("click", () => {
+    // alert(button.id);
+    countRounds ++;
     function playRound(humanChoice, computerChoice){
-    let lowerCaseString = humanChoice.toLowerCase();
+        
     
-    switch(lowerCaseString){
+    switch(humanChoice){
         case "rock":
             if (computerChoice == 1){
                 return "Draw! Rock is equal to Rock";
@@ -72,24 +61,51 @@ function playGame (){
             else {
                 return ("Draw! Scissors equals Scissors");
             }
-        default:
-            return ("Enter rock, paper, scissors");
+        // default:
+        //     return ("Enter rock, paper, scissors");
+        }
+
+   
     }
+
+const container = document.querySelector("#container");
+
+const content = document.createElement("div");
+content.classList.add("content");
+content.textContent = playRound(button.id, getComputerChoice())
+    + " "+ "Player Score: " + humanScore + " "+"Computer Score: " + computerScore;
+
+container.appendChild(content);
+
+if(countRounds == 5){
+    
+    if (humanScore > computerScore) {
+    
+        container.textContent = "You win!" + "Player Score: " + humanScore + " " +"Computer Score: " + computerScore;
+    } 
+    else 
+        if(humanScore == computerScore){
+            container.textContent = "Draw!" + "Player Score: " + humanScore + " " +"Computer Score: " + computerScore;
+        }
+
+    else {
+    container.textContent = "You lose!" + "Player Score: " + humanScore + " " +"Computer Score: " + computerScore;
+    }
+
+humanScore = 0;
+computerScore = 0;
+countRounds = 0;
 }
 
-// for ( let i = 0; i < 5; i++){
-    console.log(playRound(getHumanChoice(), getComputerChoice())) ;
-// }
 
-if (humanScore > computerScore) {
-    return "You win!";
-}
-else {
-    return "You lose!"
-}
-
-}
+  });
+});
 
 
 
-console.log(playGame());
+
+
+
+
+
+
